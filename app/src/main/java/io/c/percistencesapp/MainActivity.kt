@@ -7,6 +7,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        var myNumToSave = 0
+        var myTextToSave = ""
+
+    }
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +29,9 @@ class MainActivity : AppCompatActivity() {
     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     //Sauvegarde des valeurs que je souhaite conserver à l'affichage... ou autre pi être
     override fun onSaveInstanceState(outState: Bundle?) {
+
+        myNumToSave = myNumbrePicker.value
+
         super.onSaveInstanceState(outState)
     }
 
@@ -28,6 +39,9 @@ class MainActivity : AppCompatActivity() {
     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     //Restauration des valeurs que je souhaite conserver à l'affichage... ou autre pi être
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+
+        myNumbrePicker.value = myNumToSave
+
         super.onRestoreInstanceState(savedInstanceState)
     }
 
